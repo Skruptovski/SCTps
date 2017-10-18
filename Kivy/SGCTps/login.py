@@ -12,10 +12,10 @@ from kivy.config import Config
 
 from kivy.uix.textinput import TextInput
 
-from Usuario import Usuario
-from TrabajoPractico import TrabajoPractico
-from Actividad import Actividad
-from dbpython import *
+from clases.Usuario import Usuario
+from clases.TrabajoPractico import TrabajoPractico
+from clases.Actividad import Actividad
+from clases.dbpython import *
 locale.setlocale(locale.LC_ALL, 'Spanish')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
@@ -32,8 +32,6 @@ class Login(GridLayout):
         try:
 
             cursor = db.cursor()
-            print(self.usuario_input.text)
-            print( self.password_input.text)
             cursor.execute("SELECT tipo FROM usuarios WHERE usuario='"+self.usuario_input.text+"' AND clave='"+self.password_input.text+"'")
             row = cursor.fetchone()
             tipo = str(row[0])
