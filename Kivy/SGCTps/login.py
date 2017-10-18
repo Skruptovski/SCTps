@@ -4,16 +4,24 @@ import pymysql
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.properties import ObjectProperty
+from kivy.properties import StringProperty
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
 from kivy.uix.image import Image
 from kivy.config import Config
 
+from kivy.uix.textinput import TextInput
+
+from Usuario import Usuario
+from TrabajoPractico import TrabajoPractico
+from Actividad import Actividad
+from dbpython import *
 locale.setlocale(locale.LC_ALL, 'Spanish')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
 class CustomPopup(Popup):
     pass
+
 
 class Login(GridLayout):
     usuario_input = ObjectProperty()
@@ -22,16 +30,20 @@ class Login(GridLayout):
     def iniciar_sesion(self):
         # Connect to the database and get the role of that user and password
         try:
-            conn = pymysql.connect(user="root",passwd="pires777",host="127.0.0.1",port=3306,database="sgctps")
-            cursor = conn.cursor()
-            cursor.execute("SELECT rol FROM usuario WHERE Usuario='"+self.usuario_input.text+"' AND Password='"+self.password_input.text+"'")
+
+            cursor = db.cursor()
+            print(self.usuario_input.text)
+            print( self.password_input.text)
+            cursor.execute("SELECT tipo FROM usuarios WHERE usuario='"+self.usuario_input.text+"' AND clave='"+self.password_input.text+"'")
             row = cursor.fetchone()
-            rol = str(row[0])
-            # Trigger app correspondiente
-            print(rol)
+            tipo = str(row[0])
+            # Trigger app correspondient
+            print(tipo)
+
+
         except Exception:
             print("Error")
-        conn.close()
+        db.close()
 
     def ingresar_alumno(self):
         pass
