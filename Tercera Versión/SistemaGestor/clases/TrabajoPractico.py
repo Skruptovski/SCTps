@@ -1,10 +1,10 @@
 class TrabajoPractico:
-    def __init__(self, idTrabajo, titulo, materia, carrera, idLogin):
+    def __init__(self, idTrabajo, titulo, materia, carrera, idUsuario):
         self.__idTrabajo = idTrabajo
         self.__titulo = titulo
         self.__materia = materia
         self.__carrera = carrera
-        self.__idLogin = idLogin
+        self.__idUsuario = idUsuario
 
 #METODOS ---------------------
     def setIdTrabajo(self, idTrabajo):
@@ -31,15 +31,15 @@ class TrabajoPractico:
     def getCarrera(self):
         return self.__carrera
 
-    def setIdLogin(self, idLogin):
-        self.__idLogin = idLogin
+    def setIdUsuario(self, idUsuario):
+        self.__idUsuario = idUsuario
 
-    def getIdLogin(self):
-        return self.__idLogin
+    def getIdUsuario(self):
+        return self.__idUsuario
 
     def imprimirDatos(self):
         print "idTrabajo: ", self.getIdTrabajo()
         print "Titulo: ", self.getTitulo()
         print "Materia: ", self.getMateria()
         print "Carrera: ", self.getCarrera()
-        print "IdLogin: ", self.getIdLogin()
+        print "IdUsuario: ", self.getIdUsuario()

@@ -1,7 +1,7 @@
-class Login:
+class Usuario:
 #CONSTRUCTOR ---------------------
-    def __init__(self, idLogin, nombre, apellido, usuario, clave, tipo):
-        self.__idLogin = idLogin
+    def __init__(self, idUsuario, nombre, apellido, usuario, clave, tipo):
+        self.__idUsuario = idUsuario
         self.__nombre = nombre
         self.__apellido = apellido
         self.__usuario = usuario
@@ -9,11 +9,11 @@ class Login:
         self.__tipo = tipo
 
 #METODOS ---------------------
-    def setIdLogin(self, idLogin):
-        self.__idLogin = idLogin
+    def setIdUsuario(self, idUsuario):
+        self.__idUsuario = idUsuario
 
-    def getIdLogin(self):
-        return self.__idLogin
+    def getIdUsuario(self):
+        return self.__idUsuario
 
     def setNombre(self, nombre):
         self.__nombre = nombre
@@ -46,11 +46,13 @@ class Login:
         return self.__tipo
 
     def imprimirDatos(self):
-        print "idLogin: ", self.getIdLogin()
+        print "idUsuario: ", self.getIdUsuario()
         print "Nombre: ", self.getNombre()
         print "Apellido: ", self.getApellido()
         print "Usuario: ", self.getUsuario()
         print "Password: ", self.getClave()
         print "Tipo: ", self.getTipo()
 
+    def CrearUsuario(self, idUsuario, nombre, apellido, usuario, clave, tipo):
+        pass
 
