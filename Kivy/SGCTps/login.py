@@ -7,8 +7,13 @@ from kivy.properties import ObjectProperty
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
 from kivy.uix.image import Image
+from kivy.config import Config
 
 locale.setlocale(locale.LC_ALL, 'Spanish')
+Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
+
+class CustomPopup(Popup):
+    pass
 
 class Login(GridLayout):
     usuario_input = ObjectProperty()
@@ -35,7 +40,8 @@ class Login(GridLayout):
         pass
 
     def ayuda(self):
-        pass
+        ayuda_popup = CustomPopup()
+        ayuda_popup.open()
 
 class LoginApp(App):
     def build(self):

@@ -1,5 +1,17 @@
 #: import main login
 
+<CustomPopup>
+    size_hint: .5, .5
+    title: "Ayuda"
+    title_size: 20
+    Label:
+        text: "\nSi usted es Docente o Administrador:\n    1- Ingrese usuario y contraseña.\n    2- Presione Iniciar sesión.\n\n    Si no posee acceso puede solicitarlo desde la opción Registrarse.\n\nSi usted es un alumno:\n    1- Seleccione el botón Ingresar como alumno (no requiere credenciales).\n\nPara volver haga click fuera de la ventana de Ayuda."
+        size_hint_y: None
+        text_size: self.width, None
+        height: self.texture_size[1]
+        halign: 'left'
+        valign: 'top'
+
 <CustButton@Button>
     font_size: 18
     background_normal: 'images/boton_normal.png'
