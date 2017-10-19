@@ -1,5 +1,6 @@
 import kivy
 import locale
+import pymysql
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.properties import ObjectProperty
@@ -14,7 +15,6 @@ from kivy.uix.textinput import TextInput
 from clases.Usuario import Usuario
 from clases.TrabajoPractico import TrabajoPractico
 from clases.Actividad import Actividad
-from clases.dbpython import *
 locale.setlocale(locale.LC_ALL, 'Spanish')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
@@ -29,7 +29,11 @@ class Login(GridLayout):
     def iniciar_sesion(self):
         # Connect to the database and get the role of that user and password
         try:
-
+            db = pymysql.connect(user="root",
+                passwd="root",
+                host="127.0.0.1",
+                port=3306,
+                db="dbpython")
             cursor = db.cursor()
             cursor.execute("SELECT tipo FROM usuarios WHERE usuario='"+self.usuario_input.text+"' AND clave='"+self.password_input.text+"'")
             row = cursor.fetchone()
