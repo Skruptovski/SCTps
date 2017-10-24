@@ -1,6 +1,75 @@
 #: import main profesor
+#:kivy 1.9.0
+
 
 <Profesor>:
+    cols: 2
+    rows: 2
+    spacing: 1
+    padding: 1
+
+    canvas:
+        Color:
+            rgba:  0.9, 0.9, 0.9, 1
+        Rectangle:
+            pos: self.x, self.y
+            size: self.size
+
+    Label:
+        size_hint_x: None
+        width: 200
+        size_hint_y: None
+        height: 50
+
+    GridLayout:
+        cols: 1
+        rows: 1
+        size_hint_y: None
+        width: 50
+
+        Label:
+            text: "Sistema Gestor de Corrección de Trabajos Prácticos"
+            color: 0.5, 0, 0, 1
+            font_size: 20
+            Label:
+
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'images/c1.png'
+        size_hint_x: None
+        width: 200
+        orientation: "vertical"
+        spacing: 1
+        padding: 1
+        Label:
+        Button:
+            text: "Crear Trabajo Practico"
+            background_normal: 'images/boton_normal.png'
+            background_down: 'images/boton_presionado.png'
+        Button:
+            text: "Buscar Trabajo Practico"
+            background_normal: 'images/boton_normal.png'
+            background_down: 'images/boton_presionado.png'
+
+        Label:
+        Label:
+        Label:
+
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'images/im1.png'
+
+
+
+
+
+<Profesor1>:
     cols: 2
     rows: 2
     spacing: 5
@@ -27,7 +96,7 @@
 
         Label:
             text: "Sistema Gestor de Corrección de Trabajos Prácticos"
-            color:  0, 0, 0, 1
+            color: 0.5, 0, 0, 1
             font_size: 20
             Label:
 
@@ -43,9 +112,12 @@
         Label:
         Button:
             text: "Crear Trabajo Practico"
+            background_normal: 'images/boton_presionado.png'
+
         Button:
             text: "Buscar Trabajo Practico"
-
+            background_normal: 'images/boton_normal.png'
+            background_down: 'images/boton_presionado.png'
         Label:
         Label:
         Label:
@@ -56,3 +128,26 @@
                 pos: self.pos
                 size: self.size
                 source: 'images/im1.png'
+
+
+        orientation: "vertical"
+        spacing: 10
+        padding: 100
+        Label:
+            text: "Título"
+        TextInput:
+            id: idtp_input
+            multiline: False
+        Label:
+            text: "Materia"
+        TextInput:
+            id: profesor_input
+            multiline: False
+        Label:
+            text: "Carrera"
+        TextInput:
+            id: materia_input
+            multiline: False
+        Label:
+        Button:
+            text: "Siguiente"

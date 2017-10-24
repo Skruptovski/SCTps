@@ -11,7 +11,7 @@ from kivy.config import Config
 from kivy.app import App
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.lang import Builder
-
+from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition, SlideTransition
 locale.setlocale(locale.LC_ALL, 'Spanish')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
