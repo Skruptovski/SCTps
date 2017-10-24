@@ -1,5 +1,5 @@
 from clases.dbpython import *
-sql = "INSERT INTO usuarios(nombre, apellido, usuario, clave) values('Sebastian', 'Martins', 'SMartins', 'unla')"
+sql = "INSERT INTO usuarios(nombre, apellido, usuario, clave, tipo) values('Sebastian', 'Martins', 'SMartins', 'unla', 'Administrador')"
 cursor.execute(sql)
 db.commit()
 sql = "SELECT idUsuario FROM usuarios WHERE usuario='SMartins' AND clave='unla'"
