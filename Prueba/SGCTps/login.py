@@ -34,6 +34,7 @@ class Login(GridLayout):
                 port=3306,
                 db="dbpython")
             cursor = db.cursor()
+            print self.usuario_input.text
             sql = "SELECT tipo FROM usuarios WHERE usuario='" + self.usuario_input.text + "' AND clave='" + self.password_input.text + "'"
             cursor.execute(sql)
             row = cursor.fetchone()
