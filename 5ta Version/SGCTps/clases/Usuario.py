@@ -64,10 +64,30 @@ class Usuario:
         ###
         consigna = raw_input("Detalle su ejercicio: ")
         respuesta = raw_input("Escriba la respuesta correcta: ")
-        sql = "SELECT idTrabajo from trabajos WHERE idTrabajo='" + idTrabajo + "'"
+        sql = "INSERT INTO actividades(idTrabajo, consigna, respuesta) values('" + idTrabajo + "', '" + consigna + "', '" + respuesta + "')"
+        cursor.execute(sql)
+        db.commit()
+
+
+"""
+    def crearTrabajoPractico(self):
+        titulo = raw_input("Ingrese titulo del trabajo practico: ")
+        materia = raw_input("Ingrese materia del trabajo practico: ")
+        carrera = raw_input("Ingrese carrera del trabajo practico: ")
+        idUsuario = str(self.getIdUsuario())
+
+        from dbpython import *
+        sql = "INSERT INTO trabajos(titulo, materia, carrera, idUsuario) values('" + titulo + "', '" + materia + "', '" + carrera + "', '" + idUsuario + "')"
+        cursor.execute(sql)
+        db.commit()
+        consigna = raw_input("Detalle su ejercicio: ")
+        respuesta = raw_input("Escriba la respuesta correcta: ")
+        sql = "SELECT idTrabajo from trabajos WHERE idUsuario='" + idUsuario + "'"
         cursor.execute(sql)
         row = cursor.fetchone()
         idTrabajo = str(row[0])
         sql = "INSERT INTO actividades(idTrabajo, consigna, respuesta) values('" + idTrabajo + "', '" + consigna + "', '" + respuesta + "')"
         cursor.execute(sql)
         db.commit()
+
+"""

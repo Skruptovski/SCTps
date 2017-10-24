@@ -12,10 +12,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TrabajoPractico.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TrabajoPractico.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SGCTps/clases/TrabajoPractico.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="-600">
               <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -26,16 +26,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Usuario.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Usuario.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SGCTps/clases/Usuario.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+            <state relative-caret-position="359">
+              <caret line="64" column="8" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
               <folding>
-                <marker date="1508805118565" expanded="true" signature="1538:1679" ph="INSERT INTO trabajos... " />
-                <marker date="1508805118565" expanded="true" signature="1863:1989" ph="Select idTra... trabajos" />
-                <marker date="1508805118565" expanded="true" signature="2254:2320" ph="SELECT idTra... trabajos" />
-                <marker date="1508805118565" expanded="true" signature="2429:2553" ph="INSERT INTO actividades... " />
+                <marker date="1508806946589" expanded="true" signature="1538:1679" ph="INSERT INTO trabajos... " />
+                <marker date="1508806946589" expanded="true" signature="1863:1989" ph="Select idTra... trabajos" />
+                <marker date="1508806946589" expanded="true" signature="2254:2378" ph="INSERT INTO actividades... " />
               </folding>
             </state>
           </provider>
@@ -60,9 +59,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SGCTps/clases/Usuario.py" />
         <option value="$PROJECT_DIR$/SGCTps/clases/Test.py" />
         <option value="$PROJECT_DIR$/SGCTps/clases/TrabajoPractico.py" />
+        <option value="$PROJECT_DIR$/SGCTps/clases/Usuario.py" />
       </list>
     </option>
   </component>
@@ -356,8 +355,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -406,35 +406,9 @@
         <state relative-caret-position="867">
           <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
           <folding>
-            <marker date="1508805118565" expanded="true" signature="1538:1679" ph="INSERT INTO trabajos... " />
-            <marker date="1508805118565" expanded="true" signature="1863:1989" ph="Select idTra... trabajos" />
-            <marker date="1508805118565" expanded="true" signature="2254:2320" ph="SELECT idTra... trabajos" />
-            <marker date="1508805118565" expanded="true" signature="2429:2553" ph="INSERT INTO actividades... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SGCTps/clases/Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1508805118474" expanded="true" signature="83:136" ph="SELECT usuar... usuarios" />
-            <marker date="1508805118474" expanded="true" signature="381:428" ph="SELECT * fro... usuarios" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SGCTps/clases/Usuario.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-          <folding>
-            <marker date="1508805118565" expanded="true" signature="1538:1679" ph="INSERT INTO trabajos... " />
-            <marker date="1508805118565" expanded="true" signature="1863:1989" ph="Select idTra... trabajos" />
-            <marker date="1508805118565" expanded="true" signature="2254:2320" ph="SELECT idTra... trabajos" />
-            <marker date="1508805118565" expanded="true" signature="2429:2553" ph="INSERT INTO actividades... " />
+            <marker date="1508806946589" expanded="true" signature="1538:1679" ph="INSERT INTO trabajos... " />
+            <marker date="1508806946589" expanded="true" signature="1863:1989" ph="Select idTra... trabajos" />
+            <marker date="1508806946589" expanded="true" signature="2254:2378" ph="INSERT INTO actividades... " />
           </folding>
         </state>
       </provider>
@@ -453,12 +427,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SGCTps/clases/TrabajoPractico.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1508805220704" expanded="true" signature="1002:1158" ph="Select idTra... trabajos" />
+            <marker date="1508805220704" expanded="true" signature="1355:1435" ph="Select consi... actividades" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SGCTps/clases/Usuario.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+          <folding>
+            <marker date="1508806946589" expanded="true" signature="1538:1679" ph="INSERT INTO trabajos... " />
+            <marker date="1508806946589" expanded="true" signature="1863:1989" ph="Select idTra... trabajos" />
+            <marker date="1508806946589" expanded="true" signature="2254:2378" ph="INSERT INTO actividades... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SGCTps/clases/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1508805118474" expanded="true" signature="83:136" ph="SELECT usuar... usuarios" />
+            <marker date="1508805118474" expanded="true" signature="381:428" ph="SELECT * fro... usuarios" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SGCTps/clases/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1508805118474" expanded="true" signature="83:136" ph="SELECT usuar... usuarios" />
+            <marker date="1508805118474" expanded="true" signature="381:428" ph="SELECT * fro... usuarios" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SGCTps/clases/TrabajoPractico.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600">
           <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <marker date="1508805220704" expanded="true" signature="1002:1158" ph="Select idTra... trabajos" />
             <marker date="1508805220704" expanded="true" signature="1355:1435" ph="Select consi... actividades" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SGCTps/clases/Usuario.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="64" column="8" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
+          <folding>
+            <marker date="1508806946589" expanded="true" signature="1538:1679" ph="INSERT INTO trabajos... " />
+            <marker date="1508806946589" expanded="true" signature="1863:1989" ph="Select idTra... trabajos" />
+            <marker date="1508806946589" expanded="true" signature="2254:2378" ph="INSERT INTO actividades... " />
           </folding>
         </state>
       </provider>
