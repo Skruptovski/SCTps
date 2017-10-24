@@ -54,9 +54,17 @@ class Usuario:
         sql = "INSERT INTO trabajos(titulo, materia, carrera, idUsuario) values('" + titulo + "', '" + materia + "', '" + carrera + "', '" + idUsuario + "')"
         cursor.execute(sql)
         db.commit()
+        ### Modifico para que agregue la consigna correspondiente al Tp y no al Usuario
+        from dbpython import *
+        sql = "Select idTrabajo from trabajos where titulo = '" + titulo + "' and materia = '" + materia + "' and carrera = '" + carrera + "'"
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        idTrabajo = str(row[0])
+        print idTrabajo
+        ###
         consigna = raw_input("Detalle su ejercicio: ")
         respuesta = raw_input("Escriba la respuesta correcta: ")
-        sql = "SELECT idTrabajo from trabajos WHERE idUsuario='" + idUsuario + "'"
+        sql = "SELECT idTrabajo from trabajos WHERE idTrabajo='" + idTrabajo + "'"
         cursor.execute(sql)
         row = cursor.fetchone()
         idTrabajo = str(row[0])

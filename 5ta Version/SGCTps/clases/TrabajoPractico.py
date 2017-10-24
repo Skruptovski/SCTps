@@ -1,3 +1,5 @@
+import string
+from dbpython import *
 class TrabajoPractico:
     def __init__(self, titulo, materia, carrera, idUsuario):
         self.__titulo = titulo
@@ -35,3 +37,29 @@ class TrabajoPractico:
         print "Titulo: ", self.getTitulo()
         print "Materia: ", self.getMateria()
         print "Carrera: ", self.getCarrera()
+
+
+    def traerIDTP(self):
+        sql = "Select idTrabajo from trabajos where titulo = '" + self.getTitulo() + "' and materia = '" + self.getMateria() + "' and carrera = '" + self.getCarrera() + "'"
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        idTrabajo = str(row[0])
+        return idTrabajo
+
+    def comprobar(self):
+        idTrabajo = self.traerIDTP()
+        sql = "Select consigna, respuesta from actividades where idTrabajo ='" + idTrabajo + "'"
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        consigna = str(row[0])
+        print "Consigna: "+ consigna
+        respuesta = str(row[1])
+        #print "Respuesta:" + respuesta
+        respuestaA = raw_input("Ingrese su respuesta: ")
+
+        # Ignora mayusculas, minusculas, espacios y acentos
+        remove = string.punctuation + string.whitespace
+        if (respuesta.lower().translate(None, remove) == respuestaA.lower().translate(None, remove)):
+            print "Respuesta Verdadera"
+        else:
+            print "Respuesta Falsa"

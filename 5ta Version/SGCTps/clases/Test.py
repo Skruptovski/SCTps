@@ -10,7 +10,7 @@ admin = Admin(usuario)
 #CARGAR UN REGISTRO DE TIPO USUARIO----------
 admin.crearUsuario("Fabricio", "Bustos", "Best4ARG", "CAI")
 #CARGAR UN REGISTRO DE TIPO TP----------
-sql = "SELECT * from usuarios WHERE usuario='Skribano'"
+sql = "SELECT * from usuarios WHERE usuario='SMartins'"
 cursor.execute(sql)
 row = cursor.fetchone()
 idUsuario = str(row[0])
