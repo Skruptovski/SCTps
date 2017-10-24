@@ -1,7 +1,7 @@
 import pymysql
 #CONEXION DE LA BASE DE DATOS ------------
 db = pymysql.connect(user="root",
-    passwd="aula",
+    passwd="root",
     host="127.0.0.1",
     port=3306,
     db="dbpython")

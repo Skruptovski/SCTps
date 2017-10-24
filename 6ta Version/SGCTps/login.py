@@ -29,7 +29,7 @@ class Login(GridLayout):
         # Connect to the database and get the role of that user and password
         try:
             db = pymysql.connect(user="root",
-                passwd="aula",
+                passwd="root",
                 host="127.0.0.1",
                 port=3306,
                 db="dbpython")
