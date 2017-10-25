@@ -33,7 +33,6 @@ class LoginScreen(Screen):
                 # Traer la ventana correspondiente
                 print(rol)
                 if(rol=="Docente"):
-
                     screenmanager.current = "docente"
                 else:
                     if(rol=="Administrador"):
@@ -57,6 +56,10 @@ class RegistrarseScreen(Screen):
     rol_input = ObjectProperty()
 
     def crear_peticion(self):
+        nombre_input = ObjectProperty()
+        apellido_input = ObjectProperty()
+        email_input = ObjectProperty()
+        rol_input = ObjectProperty()
         # Intentar conectar a la base de datos
         try:
             conn = pymysql.connect(user="root",passwd="pires777",host="127.0.0.1",port=3306,database="dbpython")
