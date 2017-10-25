@@ -1,0 +1,72 @@
+<AlumnoScreen>:
+    name: "alumno"
+    GridLayout:
+        cols: 2
+        rows: 2
+        spacing: 10
+        padding: 10
+
+        canvas:
+            Color:
+                rgba:  0.9, 0.9, 0.9, 1
+            Rectangle:
+                pos: self.x, self.y
+                size: self.size
+        # Col: 1 Row: 1
+        CustLabel:
+            text: "Logo"
+            size_hint_x: None
+            width: 200
+            size_hint_y: None
+            height: 50
+        # Col: 2 Row: 1
+        GridLayout:
+            cols: 1
+            rows: 3
+            size_hint_y: None
+            width: 50
+            CustLabel:
+                text: "Universidad Nacional de Lanús"
+            BoxLayout:
+                orientation: "horizontal"
+                CustLabel:
+                    text: "Sistema Gestor de Corrección de TPs(SGCTps)"
+                    size_hint: .8, 1
+                CustLabel:
+                    size_hint: .2, 1
+            BoxLayout:
+                orientation: "horizontal"
+                CustLabel:
+                    text: ""
+                    size_hint: .6, 1
+                CustButton:
+                    text: "Volver"
+                    on_press: app.root.current = "login"
+                    size_hint: .1, 1
+        # Col: 1 Row: 2
+        BoxLayout:
+            size_hint_x: None
+            width: 200
+            spacing: 10
+            padding: 10
+            orientation: "vertical"
+            CustLabel:
+                text: "Id. Trabajo Práctico"
+            TextInput:
+                id: idtp_input
+                multiline: False
+            CustLabel:
+                text: "Profesor"
+            TextInput:
+                id: profesor_input
+                multiline: False
+            CustLabel:
+                text: "Materia"
+            TextInput:
+                id: materia_input
+                multiline: False
+            CustButton:
+                text: "Buscar"
+            CustButton:
+                text: "Ayuda"
+        # Col: 2 Row: 2
