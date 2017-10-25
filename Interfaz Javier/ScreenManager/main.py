@@ -24,7 +24,7 @@ class LoginScreen(Screen):
     def iniciar_sesion(self):
         # Intentar conectar a la base de datos
         try:
-            conn = pymysql.connect(user="root",passwd="pires777",host="127.0.0.1",port=3306,database="dbpython")
+            conn = pymysql.connect(user="root",passwd="root",host="127.0.0.1",port=3306,database="dbpython")
             try:
                 cursor = conn.cursor()
                 cursor.execute("SELECT tipo FROM usuarios WHERE usuario='"+self.usuario_input.text+"' AND clave='"+self.password_input.text+"'")
