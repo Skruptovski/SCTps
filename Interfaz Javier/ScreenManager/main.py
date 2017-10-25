@@ -22,27 +22,28 @@ class LoginScreen(Screen):
     password_input = ObjectProperty()
 
     def iniciar_sesion(self):
-        # Conectar a la base y traer rol del usuario
+        # Intentar conectar a la base de datos
         try:
             conn = pymysql.connect(user="root",passwd="root",host="127.0.0.1",port=3306,database="dbpython")
-            cursor = conn.cursor()
-            cursor.execute("SELECT tipo FROM usuarios WHERE usuario='"+self.usuario_input.text+"' AND clave='"+self.password_input.text+"'")
-            row = cursor.fetchone()
-            rol = str(row[0])
+            try:
+                cursor = conn.cursor()
+                cursor.execute("SELECT tipo FROM usuarios WHERE usuario='"+self.usuario_input.text+"' AND clave='"+self.password_input.text+"'")
+                row = cursor.fetchone()
+                rol = str(row[0])
+                # Traer la ventana correspondiente
+                print(rol)
+                if(rol=="Docente"):
+                    screenmanager.current = "docente"
+                else:
+                    if(rol=="Administrador"):
+                        screenmanager.current = "admin"
+            except Exception:
+                print("Error de logueo")
+                error = ErrorPopup()
+                error.open()
             conn.close()
-            # Traer la ventana correspondiente
-            print(rol)
-            if(rol=="Docente"):
-                screenmanager.current = "docente"
-            else:
-                if(rol=="Administrador"):
-                    screenmanager.current = "admin"
-        # Ya sea por error de login o de la base devolver Error por consola
         except Exception:
-            print("Error")
-            conn.close()
-            error = ErrorPopup()
-            error.open()
+            print("Error de base de datos")
 
     def ayuda(self):
         ayuda = AyudaPopup()

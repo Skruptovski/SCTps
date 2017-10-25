@@ -1,5 +1,3 @@
-#: include kv/popups.kv
-    
 <LoginScreen>:
     name: "login"
     usuario_input: usuario
@@ -35,19 +33,15 @@
                 text_size: self.size
                 halign: 'center'
                 valign: 'bottom'
-            TextInput:
+            CustTextInput:
                 id: usuario
-                multiline: False
-                font_size: 18
             CustLabel:
                 text: "Password"
                 text_size: self.size
                 halign: 'center'
                 valign: 'bottom'
-            TextInput:
+            CustTextInput:
                 id: password
-                font_size: 18
-                multiline: False
                 allow_copy: False
                 password: True
             CustButton:
