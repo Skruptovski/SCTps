@@ -26,10 +26,9 @@ class Admin:
         print "Usuario: ", self.getUsuario()
         print "Password: ", self.getClave()
 
-    def crearUsuario(self, nombre, apellido, usuario, clave):
-
+    def crearUsuario(self, nombre, apellido, usuario, clave, tipo):
         cursor = dbpython.db.cursor()
-        sql = "INSERT INTO usuarios(nombre, apellido, usuario, clave) values('" + nombre + "', '" + apellido + "', '" + usuario + "', '" + clave + "')"
+        sql = "INSERT INTO usuarios(nombre, apellido, usuario, clave, tipo) values('" + nombre + "', '" + apellido + "', '" + usuario + "', '" + clave +  "', '" + tipo +"')"
         cursor.execute(sql)
         dbpython.db.commit()
 

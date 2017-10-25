@@ -49,7 +49,28 @@ class Login(GridLayout):
         pass
 
     def registrarse(self):
-        pass
+        nombre_input = ObjectProperty()
+        apellido_input = ObjectProperty()
+        usuario_input = ObjectProperty()
+        clave_input = ObjectProperty()
+        tipo_input = ObjectProperty()
+        try:
+            db = pymysql.connect(user="root",
+                passwd="root",
+                host="127.0.0.1",
+                port=3306,
+                db="dbpython")
+            cursor = db.cursor()
+            sql = "SELECT usuario FROM usuarios WHERE usuario='" + self.usuario_input.text + "'"
+            cursor.execute(sql)
+            row = cursor.fetchone()
+            tipo = str(row[0])
+            # Trigger app correspondient
+            print(tipo)
+
+        except Exception:
+            print("Error")
+        db.close()
 
     def ayuda(self):
         ayuda_popup = CustomPopup()
