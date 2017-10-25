@@ -56,17 +56,16 @@ class RegistrarseScreen(Screen):
     rol_input = ObjectProperty()
 
     def crear_peticion(self):
-        nombre_input = ObjectProperty()
-        apellido_input = ObjectProperty()
-        email_input = ObjectProperty()
-        rol_input = ObjectProperty()
         # Intentar conectar a la base de datos
         try:
-            conn = pymysql.connect(user="root",passwd="pires777",host="127.0.0.1",port=3306,database="dbpython")
+            conn = pymysql.connect(user="root", passwd="root", host="127.0.0.1", port=3306, database="dbpython")
             # Insertar nueva peticion en la base
             try:
                 cursor = conn.cursor()
-                cursor.execute("INSERT INTO `dbpython`.`peticiones` (`nombre`, `apellido`, `rol`, `email`) VALUES ('"+self.nombre_input.text+"', '"+self.apellido_input.text+"', '"+self.rol_input.text+"', '"+self.email_input.text+"'")
+
+                cursor.execute(
+                    "INSERT INTO `dbpython`.`peticiones` (`nombre`, `apellido`, `usuario`, `clave`, `tipo`, `idAdmin`) VALUES ('"+self.nombre_input.text+ "', '"+self.apellido_input.text+"', 'user1', 'user1c', '"+self.rol_input.text+"', '1')")
+                conn.commit()
                 print("Peticion cargada con éxito")
             except Exception:
                 print("Error al insertar la petición")
