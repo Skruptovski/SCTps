@@ -1,0 +1,104 @@
+<CrearTPScreen>:
+    name: "creartp"
+    GridLayout:
+        cols: 2
+        rows: 2
+        spacing: 10
+        padding: 10
+
+        canvas:
+            Color:
+                rgba:  0.9, 0.9, 0.9, 1
+            Rectangle:
+                pos: self.x, self.y
+                size: self.size
+        # Col: 1 Row: 1
+        CustLabel:
+            text: "Docente"
+            size_hint_x: None
+            width: 200
+            size_hint_y: None
+            height: 50
+        # Col: 2 Row: 1
+        GridLayout:
+            cols: 1
+            rows: 3
+            size_hint_y: None
+            width: 50
+            CustLabel:
+                text: "Universidad Nacional de Lanús"
+            BoxLayout:
+                orientation: "horizontal"
+                CustLabel:
+                    text: "Sistema Gestor de Corrección de TPs(SGCTps)"
+                    size_hint: .8, 1
+                CustLabel:
+                    size_hint: .2, 1
+            BoxLayout:
+                orientation: "horizontal"
+                CustLabel:
+                    text: ""
+                    size_hint: .6, 1
+                CustButton:
+                    text: "Volver"
+                    on_press: app.root.current = "login"
+                    size_hint: .1, 1
+        # Col: 1 Row: 2
+        BoxLayout:
+            size_hint_x: None
+            width: 200
+            spacing: 20
+            padding: 2
+            orientation: "vertical"
+
+            CustButton:
+                text: "Crear Trabajo"
+                background_normal: 'images/boton_presionado.png'
+            CustButton:
+                text: "Modificar Trabajo"
+
+            BoxLayout:
+                orientation: "vertical"
+                CustLabel:
+                    text: "Nombre"
+                TextInput:
+                    id: idtp_input
+                    multiline: False
+            BoxLayout:
+                orientation: "vertical"
+                CustLabel:
+                    text: "Materia"
+                TextInput:
+                    id: materia_input
+                    multiline: False
+            CustButton:
+                text: "Buscar Trabajo"
+            CustButton:
+                text: "Ayuda"
+
+
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: 1
+            padding: 40
+            CustLabel:
+                text: "Título"
+            TextInput:
+                id: idtp
+                multiline: False
+            CustLabel:
+                text: "Materia"
+            TextInput:
+                id: profesor
+                multiline: False
+            CustLabel:
+                text: "Carrera"
+            TextInput:
+                id: materia
+                multiline: False
+            Label:
+            Button:
+                text: "Siguiente"
+                on_press: app.submit_clicked("PRv")
+                on_press: root.iniciar_sesion()
