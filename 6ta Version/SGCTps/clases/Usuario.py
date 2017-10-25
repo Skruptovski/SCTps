@@ -1,11 +1,12 @@
 class Usuario:
 #CONSTRUCTOR ---------------------
-    def __init__(self,idUsuario, nombre, apellido, usuario, clave):
+    def __init__(self,idUsuario, nombre, apellido, usuario, clave, tipo):
         self.__idUsuario = idUsuario
         self.__nombre = nombre
         self.__apellido = apellido
         self.__usuario = usuario
         self.__clave = clave
+        self.__tipo = tipo
 
 #METODOS ---------------------
     def setIdUsuario(self, idUsuario):
@@ -38,12 +39,20 @@ class Usuario:
     def getClave(self):
         return self.__clave
 
+    def setTipo(self, tipo):
+        self.__tipo = tipo
+
+    def getTipo(self):
+        return self.__tipo
+
     def imprimirDatos(self):
         print "IdUsuario: ", self.getIdUsuario()
         print "Nombre: ", self.getNombre()
         print "Apellido: ", self.getApellido()
         print "Usuario: ", self.getUsuario()
         print "Password: ", self.getClave()
+        print "Tipo: ", self.getTipo()
+
 
     def crearTrabajoPractico(self):
         titulo = raw_input("Ingrese titulo del trabajo practico: ")

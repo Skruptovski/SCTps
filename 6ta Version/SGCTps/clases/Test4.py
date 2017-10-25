@@ -13,7 +13,8 @@ nombre = str(row[1])
 apellido = str(row[2])
 usuario = str(row[3])
 clave = str(row[4])
-user = Usuario(idUsuario, nombre, apellido, usuario, clave)
+tipo = str(row[5])
+user = Usuario(idUsuario, nombre, apellido, usuario, clave, tipo)
 
 
 admin = Admin(user,None)

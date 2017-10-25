@@ -31,7 +31,7 @@ Builder.load_string("""
                     text: "Verdadero"
                 CheckBox:
                     center: self.parent.center
-                    #on_active: 
+                    #on_active:
                 Label:
                     text: "Falso"
                 CheckBox:
@@ -41,12 +41,12 @@ Builder.load_string("""
                     text: "Otro"
                 CheckBox:
                     center: self.parent.center
-                    #on_active:   
+                    #on_active:
             BoxLayout:
                 size_hint_x: None
                 width: 720
                 orientation: "horizontal"
-        
+
                 Label:
                     text: 'Elegir 1 opcion'
                 CheckBox:
@@ -56,7 +56,7 @@ Builder.load_string("""
                 CheckBox:
                     size_hint_y: None
                     height: '48dp'
-                    group: 'g2'       
+                    group: 'g2'
                 CheckBox:
                     size_hint_y: None
                     height: '48dp'
@@ -65,7 +65,7 @@ Builder.load_string("""
                 size_hint_x: None
                 width: 720
                 orientation: "horizontal"
-                
+
                 Button:
                     size_hint_y: None
                     height: 50
@@ -73,7 +73,7 @@ Builder.load_string("""
                 Button:
                     size_hint_y: None
                     height: 50
-                    text: "Comprobar"  
+                    text: "Comprobar"
     TabbedPanelItem:
         text: 'Pregunta 2'
         spacing: 10
@@ -96,7 +96,7 @@ Builder.load_string("""
                     text: "Verdadero"
                 CheckBox:
                     center: self.parent.center
-                    #on_active: 
+                    #on_active:
                 Label:
                     text: "Falso"
                 CheckBox:
@@ -106,12 +106,12 @@ Builder.load_string("""
                     text: "Otro"
                 CheckBox:
                     center: self.parent.center
-                    #on_active:   
+                    #on_active:
             BoxLayout:
                 size_hint_x: None
                 width: 720
                 orientation: "horizontal"
-        
+
                 Label:
                     text: 'Elegir 1 opcion'
                 CheckBox:
@@ -121,7 +121,7 @@ Builder.load_string("""
                 CheckBox:
                     size_hint_y: None
                     height: '48dp'
-                    group: 'g2'       
+                    group: 'g2'
                 CheckBox:
                     size_hint_y: None
                     height: '48dp'
@@ -130,7 +130,7 @@ Builder.load_string("""
                 size_hint_x: None
                 width: 720
                 orientation: "horizontal"
-                
+
                 Button:
                     size_hint_y: None
                     height: 50
@@ -138,9 +138,9 @@ Builder.load_string("""
                 Button:
                     size_hint_y: None
                     height: 50
-                    text: "Comprobar"    
+                    text: "Comprobar"
     TabbedPanelItem:
-        text: 'Pregunta 3'   
+        text: 'Pregunta 3'
     TabbedPanelItem:
         text: 'Pregunta 4'
     TabbedPanelItem:
