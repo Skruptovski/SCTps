@@ -10,6 +10,7 @@ from kivy.uix.popup import Popup
 
 import locale
 from clases.dbpython import *
+from clases.Usuario import Usuario
 
 class ErrorPopup(Popup):
     pass
@@ -72,7 +73,23 @@ class DocenteScreen(Screen):
     pass
 
 class CrearTPScreen(Screen):
-    pass
+    titulo_input = ObjectProperty()
+    materia_input = ObjectProperty()
+    carrera_input = ObjectProperty()
+
+    def crear_tp(self):
+        # Intentar conectar a la base de datos
+        try:
+            #La idea sería traer el id desde el .kv original
+            sql = "SELECT * from usuarios WHERE usuario='SMartins'"
+            cursor.execute(sql)
+            row = cursor.fetchone()
+            user = Usuario(str(row[0]), str(row[1]), str(row[2]), str(row[3]), str(row[4]), str(row[5]))
+            user.crearTrabajoPractico(self.titulo_input.text, self.materia_input.text, self.carrera_input.text)
+            print("Peticion cargada con éxito")
+        except Exception:
+            print("Error al insertar la petición")
+
 
 class AdminScreen(Screen):
     pass

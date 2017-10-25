@@ -1,5 +1,8 @@
 <CrearTPScreen>:
     name: "creartp"
+    titulo_input: titulo
+    materia_input: materia
+    carrera_input: carrera
     GridLayout:
         cols: 2
         rows: 2
@@ -41,7 +44,7 @@
                     size_hint: .6, 1
                 CustButton:
                     text: "Volver"
-                    on_press: app.root.current = "login"
+                    on_press: app.root.current = "docente"
                     size_hint: .1, 1
         # Col: 1 Row: 2
         BoxLayout:
@@ -60,16 +63,16 @@
             BoxLayout:
                 orientation: "vertical"
                 CustLabel:
-                    text: "Nombre"
+                    text: "Titulo"
                 TextInput:
-                    id: idtp_input
+                    id: titulob
                     multiline: False
             BoxLayout:
                 orientation: "vertical"
                 CustLabel:
                     text: "Materia"
                 TextInput:
-                    id: materia_input
+                    id: materiab
                     multiline: False
             CustButton:
                 text: "Buscar Trabajo"
@@ -85,20 +88,19 @@
             CustLabel:
                 text: "Título"
             TextInput:
-                id: idtp
+                id: titulo
                 multiline: False
             CustLabel:
                 text: "Materia"
             TextInput:
-                id: profesor
+                id: materia
                 multiline: False
             CustLabel:
                 text: "Carrera"
             TextInput:
-                id: materia
+                id: carrera
                 multiline: False
             Label:
             Button:
                 text: "Siguiente"
-                on_press: app.submit_clicked("PRv")
-                on_press: root.iniciar_sesion()
+                on_press: root.crear_tp()

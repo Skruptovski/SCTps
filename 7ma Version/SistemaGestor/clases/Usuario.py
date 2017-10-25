@@ -78,6 +78,22 @@ class Usuario:
         db.commit()
 
 
+    def crearTrabajoPractico(self, titulo, materia, carrera):
+        idUsuario = str(self.getIdUsuario())
+        from dbpython import *
+        sql = "INSERT INTO trabajos(titulo, materia, carrera, idUsuario) values('" + titulo + "', '" + materia + "', '" + carrera + "', '" + idUsuario + "')"
+        cursor.execute(sql)
+        db.commit()
+        ### Modifico para que agregue la consigna correspondiente al Tp y no al Usuario
+        from dbpython import *
+        sql = "Select idTrabajo from trabajos where titulo = '" + titulo + "' and materia = '" + materia + "' and carrera = '" + carrera + "'"
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        idTrabajo = str(row[0])
+        ###
+        return idTrabajo
+
+
 """
     def crearTrabajoPractico(self):
         titulo = raw_input("Ingrese titulo del trabajo practico: ")
