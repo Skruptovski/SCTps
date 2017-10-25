@@ -14,7 +14,7 @@
                 size: self.size
         # Col: 1 Row: 1
         CustLabel:
-            text: "Logo"
+            text: "Administrador"
             size_hint_x: None
             width: 200
             size_hint_y: None
@@ -37,7 +37,7 @@
                 CustLabel:
                     text: ""
                     size_hint: .6, 1
-                Button:
+                CustButton:
                     text: "Volver"
                     on_press: app.root.current = "login"
                     size_hint: .1, 1
@@ -63,8 +63,8 @@
             TextInput:
                 id: materia_input
                 multiline: False
-            Button:
+            CustButton:
                 text: "Buscar"
-            Button:
+            CustButton:
                 text: "Ayuda"
         # Col: 2 Row: 2

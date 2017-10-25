@@ -1,5 +1,9 @@
 <RegistrarseScreen>:
     name: "registrarse"
+    nombre_input: nombre
+    apellido_input: apellido
+    email_input: email
+    rol_input: rol
     GridLayout:
         rows: 3
         spacing: 10
@@ -34,60 +38,32 @@
                 spacing: 10
                 CustLabel:
                     text: "Nombre:"
-                TextInput:
+                CustTextInput:
                     id: nombre
-                    multiline: False
-                    font_size: 15
             BoxLayout:
                 orientation: "horizontal"
                 padding: 10
                 spacing: 10
                 CustLabel:
                     text: "Apellido:"
-                TextInput:
+                CustTextInput:
                     id: apellido
-                    multiline: False
-                    font_size: 15
             BoxLayout:
                 orientation: "horizontal"
                 padding: 10
                 spacing: 10
                 CustLabel:
                     text: "E-mail:"
-                TextInput:
+                CustTextInput:
                     id: email
-                    multiline: False
-                    font_size: 15
-            BoxLayout:
-                orientation: "horizontal"
-                padding: 10
-                spacing: 10
-                CustLabel:
-                    text: "Usuario:"
-                TextInput:
-                    id: usuario
-                    multiline: False
-                    font_size: 15
-            BoxLayout:
-                orientation: "horizontal"
-                padding: 10
-                spacing: 10
-                CustLabel:
-                    text: "Contraseña:"
-                TextInput:
-                    id: clave
-                    multiline: False
-                    font_size: 15
             BoxLayout:
                 orientation: "horizontal"
                 padding: 10
                 spacing: 10
                 CustLabel:
                     text: "Rol:"
-                TextInput:
+                CustTextInput:
                     id: rol
-                    multiline: False
-                    font_size: 15
             BoxLayout:
                 orientation: "horizontal"
                 spacing: 10
@@ -101,5 +77,5 @@
                     size_hint: .4, 1
                 CustButton:
                     text: "Enviar"
-                    on_press: app.root.current = "login"
+                    on_press: root.crear_peticion()
                     size_hint: .2, 1

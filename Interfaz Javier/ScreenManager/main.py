@@ -24,7 +24,7 @@ class LoginScreen(Screen):
     def iniciar_sesion(self):
         # Intentar conectar a la base de datos
         try:
-            conn = pymysql.connect(user="root",passwd="root",host="127.0.0.1",port=3306,database="dbpython")
+            conn = pymysql.connect(user="root",passwd="pires777",host="127.0.0.1",port=3306,database="dbpython")
             try:
                 cursor = conn.cursor()
                 cursor.execute("SELECT tipo FROM usuarios WHERE usuario='"+self.usuario_input.text+"' AND clave='"+self.password_input.text+"'")
@@ -33,6 +33,7 @@ class LoginScreen(Screen):
                 # Traer la ventana correspondiente
                 print(rol)
                 if(rol=="Docente"):
+
                     screenmanager.current = "docente"
                 else:
                     if(rol=="Administrador"):
@@ -50,7 +51,25 @@ class LoginScreen(Screen):
         ayuda.open()
 
 class RegistrarseScreen(Screen):
-    pass
+    nombre_input = ObjectProperty()
+    apellido_input = ObjectProperty()
+    email_input = ObjectProperty()
+    rol_input = ObjectProperty()
+
+    def crear_peticion(self):
+        # Intentar conectar a la base de datos
+        try:
+            conn = pymysql.connect(user="root",passwd="pires777",host="127.0.0.1",port=3306,database="dbpython")
+            # Insertar nueva peticion en la base
+            try:
+                cursor = conn.cursor()
+                cursor.execute("INSERT INTO `dbpython`.`peticiones` (`nombre`, `apellido`, `rol`, `email`) VALUES ('"+self.nombre_input.text+"', '"+self.apellido_input.text+"', '"+self.rol_input.text+"', '"+self.email_input.text+"'")
+                print("Peticion cargada con éxito")
+            except Exception:
+                print("Error al insertar la petición")
+            conn.close()
+        except Exception:
+            print("Error de base de datos")
 
 class AlumnoScreen(Screen):
     pass
@@ -70,11 +89,10 @@ class MainApp(App):
         self.title = "SGCTps"
         return screenmanager
 
-# Main
 #Configs
 screenmanager = Builder.load_file("kv/main.kv")
 locale.setlocale(locale.LC_ALL, 'Spanish')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
-
+#Main
 if __name__ == "__main__":
     MainApp().run()
