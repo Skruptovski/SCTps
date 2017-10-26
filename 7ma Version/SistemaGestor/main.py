@@ -59,7 +59,7 @@ class RegistrarseScreen(Screen):
 
         # Intentar conectar a la base de datos
         try:
-            sql= "INSERT INTO `dbpython`.`peticiones` (`nombre`, `apellido`, `usuario`, `clave`, `tipo`, `idAdmin`) VALUES ('"+self.nombre_input.text+ "', '"+self.apellido_input.text+"', 'user1', 'user1c', '"+self.rol_input.text+"', '1')"
+            sql= "INSERT INTO `dbpython`.`peticiones` (`nombre`, `apellido`, `tipo`, `email`) VALUES ('"+self.nombre_input.text+ "', '"+self.apellido_input.text+"', '"+self.rol_input.text+"', '"+self.email_input.text+"')"
             cursor.execute(sql)
             db.commit()
             print("Peticion cargada con éxito")
@@ -78,7 +78,7 @@ class CrearTPScreen(Screen):
     carrera_input = ObjectProperty()
 
     def crear_tp(self):
-        print 'Usuario' + LoginScreen.us
+        #print 'Usuario' + LoginScreen.us
 
         # Intentar conectar a la base de datos
         try:
@@ -86,7 +86,7 @@ class CrearTPScreen(Screen):
             sql = "SELECT * from usuarios WHERE usuario= '"+LoginScreen.us+ "'"
             cursor.execute(sql)
             row = cursor.fetchone()
-            user = Usuario(str(row[0]), str(row[1]), str(row[2]), str(row[3]), str(row[4]), str(row[5]))
+            user = Usuario(str(row[0]), str(row[1]), str(row[2]), str(row[3]), str(row[4]))
             user.crearTrabajoPractico(self.titulo_input.text, self.materia_input.text, self.carrera_input.text)
             print("Peticion cargada con éxito")
         except Exception:

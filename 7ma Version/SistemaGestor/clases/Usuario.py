@@ -1,19 +1,18 @@
 class Usuario:
 #CONSTRUCTOR ---------------------
-    def __init__(self,idUsuario, nombre, apellido, usuario, clave, tipo):
-        self.__idUsuario = idUsuario
+    def __init__(self, usuario, nombre, apellido, clave, tipo):
+        self.__usuario = usuario
         self.__nombre = nombre
         self.__apellido = apellido
-        self.__usuario = usuario
         self.__clave = clave
         self.__tipo = tipo
 
 #METODOS ---------------------
-    def setIdUsuario(self, idUsuario):
-        self.__idUsuario = idUsuario
+    def setUsuario(self, usuario):
+        self.__usuario = usuario
 
-    def getIdUsuario(self):
-        return self.__idUsuario
+    def getUsuario(self):
+        return self.__usuario
 
     def setNombre(self, nombre):
         self.__nombre = nombre
@@ -26,12 +25,6 @@ class Usuario:
 
     def getApellido(self):
         return self.__apellido
-
-    def setUsuario(self, usuario):
-        self.__usuario = usuario
-
-    def getUsuario(self):
-        return self.__usuario
 
     def setClave(self, clave):
         self.__clave = clave
@@ -46,11 +39,10 @@ class Usuario:
         return self.__tipo
 
     def imprimirDatos(self):
-        print "IdUsuario: ", self.getIdUsuario()
+        print "Usuario: ", self.getUsuario()
         print "Nombre: ", self.getNombre()
         print "Apellido: ", self.getApellido()
-        print "Usuario: ", self.getUsuario()
-        print "Password: ", self.getClave()
+        print "Clave: ", self.getClave()
         print "Tipo: ", self.getTipo()
 
 
@@ -79,9 +71,10 @@ class Usuario:
 
 
     def crearTrabajoPractico(self, titulo, materia, carrera):
-        idUsuario = str(self.getIdUsuario())
+        usuario = str(self.getUsuario())
+        #print usuario
         from dbpython import *
-        sql = "INSERT INTO trabajos(titulo, materia, carrera, idUsuario) values('" + titulo + "', '" + materia + "', '" + carrera + "', '" + idUsuario + "')"
+        sql = "INSERT INTO trabajos(titulo, materia, carrera, usuario) values('" + titulo + "', '" + materia + "', '" + carrera + "', '" + usuario + "')"
         cursor.execute(sql)
         db.commit()
         ### Modifico para que agregue la consigna correspondiente al Tp y no al Usuario
