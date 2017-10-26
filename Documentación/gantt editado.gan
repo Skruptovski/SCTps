@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Gantt C3" company="" webLink="http://" view-date="2017-08-14" view-index="0" gantt-divider-location="522" resource-divider-location="300" version="2.8.5" locale="es">
+    <description/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="334" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="61" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="108" order="2"/>
+        <timeline><![CDATA[97]]></timeline>
+        <option id="color.recent"><![CDATA[#006699 #ccccff]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="210" order="0"/>
+        <field id="1" name="Función" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+        <date year="" month="1" date="1" type="HOLIDAY"/>
+        <date year="" month="3" date="24" type="HOLIDAY"/>
+        <date year="" month="4" date="2" type="HOLIDAY"/>
+        <date year="" month="5" date="1" type="HOLIDAY"/>
+        <date year="" month="5" date="25" type="HOLIDAY"/>
+        <date year="" month="7" date="9" type="HOLIDAY"/>
+        <date year="" month="12" date="8" type="HOLIDAY"/>
+        <date year="" month="12" date="25" type="HOLIDAY"/>
+        <date year="2007" month="4" date="5" type="HOLIDAY"/>
+        <date year="2007" month="4" date="6" type="HOLIDAY"/>
+        <date year="2007" month="6" date="18" type="HOLIDAY"/>
+        <date year="2007" month="8" date="20" type="HOLIDAY"/>
+        <date year="2007" month="10" date="15" type="HOLIDAY"/>
+        <date year="2008" month="3" date="20" type="HOLIDAY"/>
+        <date year="2008" month="3" date="21" type="HOLIDAY"/>
+        <date year="2008" month="6" date="16" type="HOLIDAY"/>
+        <date year="2008" month="8" date="18" type="HOLIDAY"/>
+        <date year="2008" month="10" date="12" type="HOLIDAY"/>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="121" name="Hito 1: Analisis y Diseño Inicial" color="#006699" meeting="false" start="2017-08-18" duration="13" complete="0" expand="true"/>
+        <task id="0" name="Identificar los posibles MCVS" color="#8cb6ce" meeting="false" start="2017-08-18" duration="2" complete="0" expand="true"/>
+        <task id="3" name="Seleccionar un modelo para el proyecto" color="#8cb6ce" meeting="false" start="2017-08-19" duration="2" complete="0" expand="true"/>
+        <task id="5" name="Establecer la matriz de actividades para el MCVS" color="#8cb6ce" meeting="false" start="2017-08-20" duration="2" complete="0" expand="true"/>
+        <task id="7" name="Asignar recursos del proyecto" color="#8cb6ce" meeting="false" start="2017-08-21" duration="5" complete="0" expand="true"/>
+        <task id="9" name="Definir el entorno del proyecto" color="#8cb6ce" meeting="false" start="2017-08-23" duration="6" complete="0" expand="true"/>
+        <task id="11" name="Planificar la gestión del proyecto" color="#8cb6ce" meeting="false" start="2017-08-24" duration="3" complete="0" expand="true"/>
+        <task id="17" name="Analizar riesgos" color="#8cb6ce" meeting="false" start="2017-08-25" duration="7" complete="0" expand="true"/>
+        <task id="20" name="Realizar la planificacion de contigencias" color="#8cb6ce" meeting="false" start="2017-08-26" duration="3" complete="0" expand="true"/>
+        <task id="25" name="Implementar el sistema de informes de problemas" color="#8cb6ce" meeting="false" start="2017-08-27" duration="1" complete="0" expand="true"/>
+        <task id="33" name="Archivar registros" color="#8cb6ce" meeting="false" start="2017-08-27" duration="2" complete="0" expand="true"/>
+        <task id="51" name="Planificar la garantia de calidad del Software" color="#8cb6ce" meeting="false" start="2017-08-28" duration="2" complete="0" expand="true"/>
+        <task id="53" name="Gestionar la calidad del software" color="#8cb6ce" meeting="false" start="2017-08-30" duration="2" complete="0" expand="true"/>
+        <task id="55" name="Identificar necesidades de mejora de la calidad" color="#8cb6ce" meeting="false" start="2017-08-31" duration="1" complete="0" expand="true"/>
+        <task id="124" name="Hito 2: Prototipo1 Maqueta" color="#006699" meeting="false" start="2017-08-28" duration="11" complete="0" expand="true"/>
+        <task id="57" name="Identificar las ideas o necesidades" color="#8cb6ce" meeting="false" start="2017-08-28" duration="4" complete="0" expand="true"/>
+        <task id="60" name="Formular las soluciones potenciales" color="#8cb6ce" meeting="false" start="2017-08-30" duration="3" complete="0" expand="true"/>
+        <task id="62" name="Dirigir los estudios de viabilidad" color="#8cb6ce" meeting="false" start="2017-09-01" duration="5" complete="0" expand="true"/>
+        <task id="64" name="Refinar y Finalizar la idea o necesidad " color="#8cb6ce" meeting="false" start="2017-09-02" duration="3" complete="0" expand="true"/>
+        <task id="66" name="Analizar las funciones del sistema " color="#8cb6ce" meeting="false" start="2017-09-03" duration="3" complete="0" expand="true"/>
+        <task id="68" name="Desarrollar la arquitectura del sistema" color="#8cb6ce" meeting="false" start="2017-09-01" duration="7" complete="0" expand="true"/>
+        <task id="72" name="Descomponer los requisitos del sistema " color="#8cb6ce" meeting="false" start="2017-09-02" duration="6" complete="0" expand="true"/>
+        <task id="133" name="Hito 3 Prototipo 2. Prototipo Funcional" color="#006699" meeting="false" start="2017-09-07" duration="40" complete="0" expand="true"/>
+        <task id="74" name="Definir y desarrollar los requisitos de software" color="#8cb6ce" meeting="false" start="2017-09-07" duration="5" complete="0" expand="true"/>
+        <task id="76" name="Realizar el diseño preliminar" color="#8cb6ce" meeting="false" start="2017-09-08" duration="11" complete="0" expand="true"/>
+        <task id="79" name="Analizar el flujo de información " color="#8cb6ce" meeting="false" start="2017-09-16" duration="3" complete="0" expand="true"/>
+        <task id="81" name="Diseñar la base de datos" color="#8cb6ce" meeting="false" start="2017-09-17" duration="6" complete="0" expand="true"/>
+        <task id="83" name="Diseñar las interfaces " color="#8cb6ce" meeting="false" start="2017-09-22" duration="7" complete="0" expand="true"/>
+        <task id="85" name="Seleccionar o Desarrollar algoritmos" color="#8cb6ce" meeting="false" start="2017-09-25" duration="12" complete="0" expand="true"/>
+        <task id="134" name="Hito 4 .Presentación Global del Proyecto" color="#006699" meeting="false" start="2017-10-01" duration="56" complete="0" expand="true"/>
+        <task id="87" name="Realizar el diseño detallado" color="#8cb6ce" meeting="false" start="2017-10-01" duration="10" complete="0" expand="true"/>
+        <task id="89" name="Crear los datos de prueba " color="#8cb6ce" meeting="false" start="2017-10-06" duration="4" complete="0" expand="true"/>
+        <task id="91" name="Crear el código fuente" color="#8cb6ce" meeting="false" start="2017-10-04" duration="15" complete="0" expand="true"/>
+        <task id="93" name="Generar el código objeto " color="#8cb6ce" meeting="false" start="2017-10-06" duration="11" complete="0" expand="true"/>
+        <task id="95" name="Crear la documentación de operación " color="#8cb6ce" meeting="false" start="2017-10-10" duration="10" complete="0" expand="true"/>
+        <task id="97" name="Planificar la integración" color="#8cb6ce" meeting="false" start="2017-10-12" duration="6" complete="0" expand="true"/>
+        <task id="99" name="Realizar la integración" color="#8cb6ce" meeting="false" start="2017-10-17" duration="5" complete="0" expand="true"/>
+        <task id="101" name="Planificar la instalación " color="#8cb6ce" meeting="false" start="2017-10-14" duration="7" complete="0" expand="true"/>
+        <task id="103" name="Distribuir el software " color="#8cb6ce" meeting="false" start="2017-10-18" duration="3" complete="0" expand="true"/>
+        <task id="105" name="Instalar el software " color="#8cb6ce" meeting="false" start="2017-10-21" duration="2" complete="0" expand="true"/>
+        <task id="107" name="Cargar la base de datos " color="#8cb6ce" meeting="false" start="2017-10-22" duration="1" complete="0" expand="true"/>
+        <task id="110" name="Aceptar el software en el entorno de operación" color="#8cb6ce" meeting="false" start="2017-10-23" duration="4" complete="0" expand="true"/>
+        <task id="112" name="Realizar las actualizaciones" color="#8cb6ce" meeting="false" start="2017-10-27" duration="3" complete="0" expand="true"/>
+        <task id="114" name="Operar el sistema " color="#8cb6ce" meeting="false" start="2017-10-29" duration="5" complete="0" expand="true"/>
+        <task id="116" name="Proveer de asistencia técnica y consultas " color="#8cb6ce" meeting="false" start="2017-11-01" duration="3" complete="0" expand="true"/>
+        <task id="118" name="Mantener el histórico de peticiones de soporte " color="#8cb6ce" meeting="false" start="2017-11-04" duration="4" complete="0" expand="true"/>
+        <task id="120" name="Realizar el mantenimiento correctivo" color="#8cb6ce" meeting="false" start="2017-11-08" duration="3" complete="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
