@@ -1,8 +1,5 @@
-<CrearTPScreen>:
-    name: "creartp"
-    titulo_input: titulo
-    materia_input: materia
-    carrera_input: carrera
+<ActividadesScreen>:
+    name: "actividades"
     GridLayout:
         cols: 2
         rows: 2
@@ -44,7 +41,7 @@
                     size_hint: .6, 1
                 CustButton:
                     text: "Volver"
-                    on_press: app.root.current = "docente"
+                    on_press: app.root.current = "creartp"
                     size_hint: .1, 1
         # Col: 1 Row: 2
         BoxLayout:
@@ -82,27 +79,53 @@
 
 
         BoxLayout:
+
             orientation: "vertical"
             spacing: 1
             padding: 40
             CustLabel:
-                text: "Título"
+                text: "Pregunta"
+                font_size: 18
             TextInput:
-                id: titulo
+
+                id: idtp
                 multiline: False
             CustLabel:
-                text: "Materia"
+                text: "Respuesta Verdadera"
+                font_size: 18
             TextInput:
-                id: materia
+                id: profesor
                 multiline: False
             CustLabel:
-                text: "Carrera"
+                text: "Respuesta Falsa"
+                font_size: 18
             TextInput:
-                id: carrera
+                id: profesor
                 multiline: False
+            CustLabel:
+                text: "Respuesta Falsa"
+                font_size: 18
+            TextInput:
+                id: profesor
+                multiline: False
+
             Label:
             Button:
-                text: "Siguiente"
+                text: "Nueva Pregunta"
+                background_normal: 'images/boton_normal.png'
+                background_down: 'images/boton_presionado.png'
+                on_press: root.iniciar_sesion()
+            Label:
 
-                on_press: root.crear_tp()
-                on_press: app.root.current = "actividades"
+            BoxLayout:
+
+                orientation: "horizontal"
+
+                Button:
+                    size_hint_y: None
+                    height: 50
+                    text: "Editar anterior"
+                Button:
+                    size_hint_y: None
+                    height: 50
+                    text: "Terminar"

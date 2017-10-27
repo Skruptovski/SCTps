@@ -96,6 +96,10 @@ class CrearTPScreen(Screen):
 class AdminScreen(Screen):
     pass
 
+
+class ActividadesScreen(Screen):
+    pass
+
 class ScreenManagement(ScreenManager):
 
     pass
