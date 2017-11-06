@@ -1,0 +1,25 @@
+<ErrorPopup>:
+    title: "Error"
+    auto_dismiss: False
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Nombre de usuario o contraseña inválidos"
+        Button:
+            text: "Salir"
+            size_hint: .2, .2
+            pos_hint: {"right":1, "top":1}
+            on_press: root.dismiss()
+
+<AyudaPopup>:
+    title: "Ayuda"
+    auto_dismiss: False
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "\nSi usted es Docente o Administrador:\n    1- Ingrese usuario y contraseña.\n    2- Presione Iniciar sesión.\n\n    Si no posee acceso puede solicitarlo desde la opción Registrarse.\n\nSi usted es un alumno:\n    1- Seleccione el botón Ingresar como alumno (no requiere credenciales).\n"
+        Button:
+            text: "Salir"
+            size_hint: .2, .2
+            pos_hint: {"right":1, "top":1}
+            on_press: root.dismiss()

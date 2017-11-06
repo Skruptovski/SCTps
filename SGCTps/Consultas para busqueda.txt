@@ -1,0 +1,28 @@
+//Si llega a elegir segun docente
+
+SELECT titulo FROM dbpython.trabajos where usuario in('prueba@gmail.com');
+
+
+
+SELECT usuario FROM dbpython.usuarios where nombre = 'Prueba';
+
+
+
+SELECT titulo FROM dbpython.trabajos where usuario in(SELECT usuario FROM dbpython.usuarios where nombre = 'Prueba');
+
+
+
+Select idTrabajo FROM dbpython.trabajos where titulo = 'tp001ejemplo';
+
+
+
+SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM dbpython.actividades where idTrabajo = 1;
+
+
+Si llega a elegir por nombre tp
+
+Select idTrabajo FROM dbpython.trabajos where titulo = 'tp001ejemplo';
+
+
+
+SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM dbpython.actividades where idTrabajo = 1;
