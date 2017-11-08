@@ -3,7 +3,7 @@
     GridLayout:
         cols: 2
         rows: 2
-        spacing: 10
+        spacing: 1
         padding: 10
 
         canvas:
@@ -14,6 +14,7 @@
                 size: self.size
         # Col: 1 Row: 1
         CustLabel:
+
             text: "Alumno"
             size_hint_x: None
             width: 200
@@ -45,28 +46,50 @@
                     size_hint: .1, 1
         # Col: 1 Row: 2
         BoxLayout:
+
+
             size_hint_x: None
             width: 200
             spacing: 10
             padding: 2
             orientation: "vertical"
-            CustLabel:
-                text: "Nombre Trabajo Práctico"
-            TextInput:
-                id: idtp_input
-                multiline: False
-            CustLabel:
-                text: "Profesor"
-            TextInput:
-                id: profesor_input
-                multiline: False
-            CustLabel:
-                text: "Materia"
-            TextInput:
-                id: materia_input
-                multiline: False
+            Label:
+
+
+
+
+
+
+
+
+
             CustButton:
-                text: "Buscar"
+                text: "Información"
+                on_press: root.resv_info()
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 2
+                CustLabel:
+                    text: root.infom
+
+
+                CustLabel:
+                    text: root.materia
+                    color: 0, 0, 0, 0.7
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 2
+                CustLabel:
+                    text: root.infoc
+
+                CustLabel:
+                    text: root.carrera
+                    color: 0, 0, 0, 0.7
+
+
+            Label:
+            CustButton:
+                text: "Comenzar"
                 on_press: root.resv_tp()
             CustButton:
                 text: "Ayuda"
@@ -93,54 +116,41 @@
                 multiline: False
             CustLabel:
                 text: "Elegir respuesta correcta:"
-
                 font_size: 20
                 size_hint_y: None
                 height: 50
-
             BoxLayout:
-
                 orientation: "horizontal"
-                spacing: 1
-                padding: 1
                 TextInput:
                     text: root.r1
                     id: profesor
-                    multiline: True
-
-
+                    multiline: False
+                CheckBox:
+                    size_hint_x: None
+                    width: 100
+                    color:  0.9, 0.9, 0.9, 10
+                    #on_active:
+            BoxLayout
+                orientation: "horizontal"
                 TextInput:
                     text: root.r2
                     id: profesor
-                    multiline: True
-
-
-
-                TextInput:
-                    text: root.r3
-                    id: profesor
-                    multiline: True
-
-
-
-            BoxLayout:
-
-
-                size_hint:1, 0.25
-                orientation: 'horizontal'
+                    multiline: False
                 CheckBox:
-
-                    color:  0.9, 0.9, 0.9, 10
-                    #active: not root.is_active
-                CheckBox:
-
+                    size_hint_x: None
+                    width: 100
                     color:  0.9, 0.9, 0.9, 10
                     active: root.is_active
+            BoxLayout:
+                orientation: "horizontal"
+                TextInput:
+                    text: root.r3
+                    multiline: False
                 CheckBox:
-
+                    size_hint_x: None
+                    width: 100
                     color:  0.9, 0.9, 0.9, 10
-                    #active: not root.is_active
-
+                    #on_active:
 
 
 
@@ -165,8 +175,8 @@
                         on_press: root.toggle()
                     Button:
                         on_press: root.resv_tp()
-                        text: "Cargar"
+                        text: "Siguiente"
                         background_down: 'images/boton_presionado.png'
-                        on_press: root.resv_tp()
+                        on_press: root.ir_siguiente()
 
 

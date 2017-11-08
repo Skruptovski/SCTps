@@ -77,8 +77,11 @@ class AlumnoScreen(Screen):
             #a partir de esa informacion trae el id. Realiza una segunda consulta a la bd respecto a las
             #consignas relacionadas con ese id. Estaba pensando que es muy probable que necesitemos id consigna
             #por si son varias ....
+            num = 1
+            print  int(num)
 
-            sql = "SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM actividades WHERE idTrabajo = (Select idTrabajo FROM dbpython.trabajos where titulo = '"+ self.nombretp_input.text + "' )"
+
+            sql = "SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM actividades WHERE idTrabajo = (Select idTrabajo FROM dbpython.trabajos where titulo = '"+ self.nombretp_input.text + "' ) and numero = ' 1' "
             cursor.execute(sql)
             row = cursor.fetchone()
             AlumnoScreen.consigna = str(row[0])
@@ -86,13 +89,23 @@ class AlumnoScreen(Screen):
             AlumnoScreen.r2 = str(row[2])
             AlumnoScreen.r3 = str(row[3])
             AlumnoScreen.correcta = str(row[4])
+            sql2 = "Select materia, carrera, titulo FROM trabajos where titulo = '" + self.nombretp_input.text + "' "
+            cursor.execute(sql2)
+            row2 = cursor.fetchone()
+            AlumnoScreen.materia = str(row2[0])
+            AlumnoScreen.carrera = str(row2[1])
+            AlumnoScreen.titulo = str(row2[2])
+
+
 
             screenmanager.current = "resolver"
+
 
         except Exception:
             print("Error")
             error = ErrorPopup()
             error.open()
+
 
     def ayuda(self):
         ayuda = AyudaPopup()
@@ -130,17 +143,54 @@ class ActividadesScreen(Screen):
     pass
 
 class ResolverScreen(Screen):
-    consigna2 = StringProperty('Cargar Preguntas')
+    consigna2 = StringProperty('Comenzar')
     r1 = StringProperty('')
     r2 = StringProperty('')
     r3 = StringProperty('')
+    carrera = StringProperty('')
+    materia = StringProperty('')
+    titulo = StringProperty('')
+    infoc = StringProperty('')
+    infom = StringProperty('')
     is_active = BooleanProperty(False)
+    num = 1
 
     def resv_tp(self):
         self.consigna2 = AlumnoScreen.consigna
         self.r1 = AlumnoScreen.r1
         self.r2 = AlumnoScreen.r2
         self.r3 = AlumnoScreen.r3
+        self.titulo = AlumnoScreen.titulo
+
+    #Probema con estos métodos, tuve que crearlos porque no tengo forma de pasar las variables de la clase anterior si no
+    #es por medio de ellos. Capaz exista otra forma, yo no la encontré
+    def resv_info(self):
+
+        self.materia = AlumnoScreen.materia
+        self.carrera = AlumnoScreen.carrera
+        self.infoc = "Carrera del Trabajo: "
+        self.infom = "Materia del Trabajo:"
+        self.titulo = AlumnoScreen.titulo
+
+    #Este método muestra la siguiente consigna, el problemá es el tope.
+    #Capaz convendría armar una consulta que cuente la cantidad de consignas relacionadas
+    def ir_siguiente(self):
+        self.num = self.num+1
+
+        print AlumnoScreen.titulo
+        sql = "SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM actividades WHERE idTrabajo = (Select idTrabajo FROM dbpython.trabajos where titulo = '" + AlumnoScreen.titulo + "' ) and numero = '" +str(self.num) +"' "
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        AlumnoScreen.consigna = str(row[0])
+        AlumnoScreen.r1 = str(row[1])
+        AlumnoScreen.r2 = str(row[2])
+        AlumnoScreen.r3 = str(row[3])
+        AlumnoScreen.correcta = str(row[4])
+        self.consigna2 = AlumnoScreen.consigna
+        self.r1 = AlumnoScreen.r1
+        self.r2 = AlumnoScreen.r2
+        self.r3 = AlumnoScreen.r3
+
 
     def toggle(self):
 
