@@ -45,6 +45,29 @@ class Usuario:
         print "Clave: ", self.getClave()
         print "Tipo: ", self.getTipo()
 
+    def traerUsuario(self,us,pas):
+
+        #se emcarga de traer usuario por  usuario y clave
+        from dbpython import *
+        cursor = db.cursor()
+        print(str(us))
+
+        sql = "SELECT * FROM usuarios WHERE usuario='"+str(us)+"' AND clave='"+str(pas)+"'"
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        self.setUsuario(row[0])
+        self.setNombre(row[1])
+        self.setApellido(str(row[2]))
+        self.setApellido(str(row[3]))
+        self.setTipo(str(row[4]))
+
+
+        return self
+
+
+
+
+
 
     def crearTrabajoPractico(self):
         titulo = raw_input("Ingrese titulo del trabajo practico: ")
@@ -73,6 +96,7 @@ class Usuario:
     def crearTrabajoPractico(self, titulo, materia, carrera):
         usuario = str(self.getUsuario())
         #print usuario
+
         from dbpython import *
         sql = "INSERT INTO trabajos(titulo, materia, carrera, usuario) values('" + titulo + "', '" + materia + "', '" + carrera + "', '" + usuario + "')"
         cursor.execute(sql)
@@ -109,3 +133,23 @@ class Usuario:
         db.commit()
 
 """
+class Sesion:
+    def traerUsuarioSes(self,us,pas):
+        #se emcarga de traer usuario por  usuario y clave
+        user=Usuario(None,None,None,None,None)
+
+        from dbpython import *
+        cursor = db.cursor()
+        print(str(us))
+
+        sql = "SELECT * FROM usuarios WHERE usuario='"+str(us)+"' AND clave='"+str(pas)+"'"
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        user.setUsuario(row[0])
+        user.setNombre(row[1])
+        user.setApellido(str(row[2]))
+        user.setApellido(str(row[3]))
+        user.setTipo(str(row[4]))
+
+
+        return user

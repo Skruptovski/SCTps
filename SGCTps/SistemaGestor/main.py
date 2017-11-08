@@ -11,7 +11,7 @@ from kivy.properties import *
 
 import locale
 from clases.dbpython import *
-from clases.Usuario import Usuario
+from clases.Usuario import Usuario, Sesion
 
 
 class ErrorPopup(Popup):
@@ -23,15 +23,18 @@ class AyudaPopup(Popup):
 class LoginScreen(Screen):
     usuario_input = ObjectProperty()
     password_input = ObjectProperty()
-    us = 0
+    user =Usuario(None,None,None,None,None)#creo un user vacio para luego cargarlo y llamarlo desde otra clase
+    sesion=Sesion()#creo la instancia de la clase Sesion para pder realizar acciones sobre el usuario
     def iniciar_sesion(self):
         # Intentar conectar a la base de datos
         try:
-            sql = "SELECT tipo,usuario FROM usuarios WHERE usuario='"+self.usuario_input.text+"' AND clave='"+self.password_input.text+"'"
-            cursor.execute(sql)
-            row = cursor.fetchone()
-            rol = str(row[0])
-            LoginScreen.us = str(row[1])
+            usuario=self.sesion.traerUsuarioSes(self.usuario_input.text,self.password_input.text)
+            #con el metodo de sesion traerusuario  obtube  una instancia de Usuario guardada en usuario
+
+            rol =usuario.getTipo()#guardo el tipo de usuario en rol para luego decidir a que pantalla es dirigido
+            LoginScreen.user=usuario #guardo la instancia de usuario en user para que sea usado por otra clase
+
+
             print(rol)
             if(rol=="Docente"):
                 screenmanager.current = "docente"
@@ -120,19 +123,18 @@ class CrearTPScreen(Screen):
     carrera_input = ObjectProperty()
 
     def crear_tp(self):
-        #print 'Usuario' + LoginScreen.us
+
 
         # Intentar conectar a la base de datos
         try:
             #La idea sería traer el id desde el .kv original
-            sql = "SELECT * from usuarios WHERE usuario= '"+LoginScreen.us+ "'"
-            cursor.execute(sql)
-            row = cursor.fetchone()
-            user = Usuario(str(row[0]), str(row[1]), str(row[2]), str(row[3]), str(row[4]))
-            user.crearTrabajoPractico(self.titulo_input.text, self.materia_input.text, self.carrera_input.text)
-            print("Peticion cargada con éxito")
+            #puebo trae la instancia de usuario desde  LoginScreen
+            print("Usuario: "+str(LoginScreen.user.getUsuario()))
+            #con la instancia user accedo al metodo agregarTp de Usuario() y le paso por parametro las entradas del teclado
+            LoginScreen.user.crearTrabajoPractico(self.titulo_input.text, self.materia_input.text, self.carrera_input.text)
+            print("TP creado con éxito")
         except Exception:
-            print("Error al insertar la petición")
+            print("Error al insertar TP")
 
 
 class AdminScreen(Screen):
@@ -196,17 +198,6 @@ class ResolverScreen(Screen):
 
         self.is_active = not self.is_active
         print self.is_active
-
-
-
-
-
-
-
-
-
-
-
 
 
 class ScreenManagement(ScreenManager):
