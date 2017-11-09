@@ -12,7 +12,8 @@ from kivy.properties import *
 import locale
 from clases.dbpython import *
 from clases.Usuario import Usuario, Sesion
-
+from clases.Peticion import Peticion
+from clases.Admin import Admin
 
 class ErrorPopup(Popup):
     pass
@@ -53,19 +54,16 @@ class RegistrarseScreen(Screen):
     nombre_input = ObjectProperty()
     apellido_input = ObjectProperty()
     email_input = ObjectProperty()
-    rol_input = ObjectProperty()
+    clave_input = ObjectProperty()
 
     def crear_peticion(self):
         print self.nombre_input.text
         print self.apellido_input.text
         print self.email_input.text
-        print self.rol_input.text
-
-        # Intentar conectar a la base de datos
+        print self.clave_input.text
+        peticion=Peticion(None ,self.nombre_input.text,self.apellido_input.text,self.email_input.text,self.clave_input.text )
         try:
-            sql= "INSERT INTO `dbpython`.`peticiones` (`nombre`, `apellido`, `tipo`, `email`) VALUES ('"+self.nombre_input.text+ "', '"+self.apellido_input.text+"', '"+self.rol_input.text+"', '"+self.email_input.text+"')"
-            cursor.execute(sql)
-            db.commit()
+            peticion.crearPeticion()
             print("Peticion cargada con éxito")
         except Exception:
             print("Error al insertar la petición")
@@ -74,7 +72,7 @@ class AlumnoScreen(Screen):
     nombretp_input = ObjectProperty()
     consigna = 0
     def resolver_tp(self):
-        #print self.nombretp_input.text
+
         try:
             #Primero hace una consulta a la base de datos por el trabajo tomando en cuenta su nombre, y
             #a partir de esa informacion trae el id. Realiza una segunda consulta a la bd respecto a las
@@ -82,10 +80,13 @@ class AlumnoScreen(Screen):
             #por si son varias ....
             num = 1
             print  int(num)
+            print self.nombretp_input.text
 
-
-            sql = "SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM actividades WHERE idTrabajo = (Select idTrabajo FROM dbpython.trabajos where titulo = '"+ self.nombretp_input.text + "' ) and numero = ' 1' "
+            sql = "SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM actividades WHERE idTrabajo =(Select idTrabajo FROM dbpython.trabajos where titulo = '"+ self.nombretp_input.text + "' ) and numero = '1' "
+            #(Select idTrabajo FROM dbpython.trabajos where titulo = '"+ self.nombretp_input.text + "' )
             cursor.execute(sql)
+
+            print self.nombretp_input.text
             row = cursor.fetchone()
             AlumnoScreen.consigna = str(row[0])
             AlumnoScreen.r1 = str(row[1])
@@ -138,8 +139,15 @@ class CrearTPScreen(Screen):
 
 
 class AdminScreen(Screen):
-    pass
+    adm=Admin(LoginScreen.user)
+    def mostrarPeticiones(self):
+        self.adm.traerPeticiones()#traigo la lista de peticiones
+        #self.adm.aprobarPeticion(self.adm.traerPeticion(6))  #cuando funcione aca le paso el id de
+        # la peticion a aprobar y el sistema lo convierte en usuario
 
+
+class PeticionesScreen(Screen):
+    pass
 
 class ActividadesScreen(Screen):
     pass
@@ -176,23 +184,29 @@ class ResolverScreen(Screen):
 
     #Este método muestra la siguiente consigna, el problemá es el tope.
     #Capaz convendría armar una consulta que cuente la cantidad de consignas relacionadas
-    def ir_siguiente(self):
-        self.num = self.num+1
-
-        print AlumnoScreen.titulo
-        sql = "SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM actividades WHERE idTrabajo = (Select idTrabajo FROM dbpython.trabajos where titulo = '" + AlumnoScreen.titulo + "' ) and numero = '" +str(self.num) +"' "
+    def total(self):
+        sql = "SELECT count(numero) FROM actividades WHERE idTrabajo = (Select idTrabajo FROM dbpython.trabajos where titulo = '" + AlumnoScreen.titulo + "' )"
         cursor.execute(sql)
         row = cursor.fetchone()
-        AlumnoScreen.consigna = str(row[0])
-        AlumnoScreen.r1 = str(row[1])
-        AlumnoScreen.r2 = str(row[2])
-        AlumnoScreen.r3 = str(row[3])
-        AlumnoScreen.correcta = str(row[4])
-        self.consigna2 = AlumnoScreen.consigna
-        self.r1 = AlumnoScreen.r1
-        self.r2 = AlumnoScreen.r2
-        self.r3 = AlumnoScreen.r3
+        return row[0]
+    def ir_siguiente(self):
+        self.num = self.num+1
+        if (self.total() >= self.num):
 
+            sql = "SELECT consigna, respuesta1, respuesta2, respuesta3, correcta FROM actividades WHERE idTrabajo = (Select idTrabajo FROM dbpython.trabajos where titulo = '" + AlumnoScreen.titulo + "' ) and numero = '" +str(self.num) +"' "
+            cursor.execute(sql)
+            row = cursor.fetchone()
+            AlumnoScreen.consigna = str(row[0])
+            AlumnoScreen.r1 = str(row[1])
+            AlumnoScreen.r2 = str(row[2])
+            AlumnoScreen.r3 = str(row[3])
+            AlumnoScreen.correcta = str(row[4])
+            self.consigna2 = AlumnoScreen.consigna
+            self.r1 = AlumnoScreen.r1
+            self.r2 = AlumnoScreen.r2
+            self.r3 = AlumnoScreen.r3
+        else:
+            print("no hay mas actividades")
 
     def toggle(self):
 

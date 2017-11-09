@@ -1,5 +1,6 @@
-<AdminScreen>:
-    name: "admin"
+<PeticionesScreen>:
+    name: "peticiones"
+
     GridLayout:
         cols: 2
         rows: 2
@@ -61,9 +62,7 @@
                 multiline: False
             CustButton:
                 text: "Mostrar Peticiones"
-                on_press: root.mostrarPeticiones()
-                on_press: app.root.current = "peticiones"
-
+                background_normal: 'images/boton_presionado.png'
 
             CustButton:
                 text: "Buscar"

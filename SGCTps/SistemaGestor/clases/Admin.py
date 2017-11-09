@@ -2,7 +2,7 @@ import Usuario
 import dbpython
 class Admin:
 #CONSTRUCTOR ---------------------
-    def __init__(self, Usuario,lst):
+    def __init__(self, Usuario):
         self.usuario = Usuario
         self.__lst = []
 
@@ -26,33 +26,25 @@ class Admin:
         print "Usuario: ", self.getUsuario()
         print "Password: ", self.getClave()
 
-    def crearUsuario(self, nombre, apellido, usuario, clave, tipo):
+    def crearUsuario(self, nombre, apellido, usuario, clave):
         cursor = dbpython.db.cursor()
-        sql = "INSERT INTO usuarios(nombre, apellido, usuario, clave, tipo) values('" + nombre + "', '" + apellido + "', '" + usuario + "', '" + clave +  "', '" + tipo +"')"
+        sql = "INSERT INTO usuarios(usuario,nombre, apellido, clave, tipo) values('"+ usuario + "', '" + nombre + "', '" + apellido + "', '"  + clave +  "', 'Docente')"
         cursor.execute(sql)
         dbpython.db.commit()
 
 
-#trae id del adm desde el usuario
-    def traerIdADM(self):
 
-        cursor = dbpython.db.cursor()
-        idUs=self.usuario.getIdUsuario()
-        sql = "SELECT idAdmin FROM administradores WHERE idUsuario="+idUs
-        cursor.execute(sql)
-        row = cursor.fetchone()
-        idADM = str(row[0])
-        return idADM
 
 #aprueba la peticion y agrega el usuario impactando la tabl usuarios y aprobados
     def aprobarPeticion(self,Peticion):
         cursor = dbpython.db.cursor()
-        idADM=str(self.traerIdADM())
 
-        self.crearUsuario(Peticion.getNombre(),Peticion.getApellido(),Peticion.getClave(),Peticion.getClave())
-        sql = "INSERT INTO aprobados (idPeticion,IdAdmin) values('" + Peticion.getIdPeticion()+ "', '" + idADM + "')"
-        cursor.execute(sql)
-        dbpython.db.commit()
+        user= self.getUsuario()
+        self.crearUsuario(Peticion.getNombre(),Peticion.getApellido(),Peticion.getUsuario(),Peticion.getClave())
+        #sql = "INSERT INTO usuariosxpeticiones (usuario,idPeticion) values('" + self.usuario.getUsuario()+ "', '" +Peticion.getIdPeticion() + "')"
+        #cursor.execute(sql)
+        #dbpython.db.commit()
+        print("peticion aprobada")
 
 #trae las peticiones por id devolviendo un objeto
     def traerPeticion(self,id):
@@ -70,9 +62,9 @@ class Admin:
         apellido = str(row[2])
         usuario = str(row[3])
         clave = str(row[4])
-        tipo = str(row[5])
 
-        peticion=Peticion(idPeticion, nombre, apellido, usuario, clave,tipo)
+
+        peticion=Peticion(idPeticion, nombre, apellido, usuario, clave)
         return peticion
 
 #trae lista de peticiones devolviendo una lista
@@ -84,10 +76,10 @@ class Admin:
         sql = "SELECT * FROM peticiones "
         cursor.execute(sql)
 
-        for idPeticion,nombre,apellido,usuario,clave,tipo in cursor.fetchall():
-            ("{0} {1} {2} {3} {4} {5} ".format(idPeticion,nombre,apellido,usuario,clave,tipo))
+        for idPeticion,nombre,apellido,usuario,clave in cursor.fetchall():
+            ("{0} {1} {2} {3} {4} ".format(idPeticion,nombre,apellido,usuario,clave))
 
-            peticion=Peticion(idPeticion, nombre, apellido, usuario, clave,tipo)
+            peticion=Peticion(idPeticion, nombre, apellido, usuario, clave)
             print peticion.imprimirDatos
             self.setLst(peticion)
         return self.__lst
