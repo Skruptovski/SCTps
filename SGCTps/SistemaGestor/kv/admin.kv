@@ -43,30 +43,32 @@
                     size_hint: .1, 1
 
         # Col: 1 Row: 2
+
+
         BoxLayout:
             size_hint_x: None
             width: 200
             spacing: 10
             padding: 10
             orientation: "vertical"
-            CustLabel:
-                text: "Id. Trabajo Práctico"
-            TextInput:
-                id: idtp_input
-                multiline: False
-            CustLabel:
-                text: "Profesor"
-            TextInput:
-                id: profesor_input
-                multiline: False
             CustButton:
                 text: "Mostrar Peticiones"
                 on_press: root.mostrarPeticiones()
                 on_press: app.root.current = "peticiones"
-
-
             CustButton:
-                text: "Buscar"
+                text: "Crear Usuario"
+                on_press: root.mostrarPeticiones()
+                on_press: app.root.current = "peticiones"
+            CustButton:
+                text: "Modificar Usuario"
+                on_press: root.mostrarPeticiones()
+                on_press: app.root.current = "peticiones"
+            CustButton:
+                text: "Eliminar Usuario"
+                on_press: root.mostrarPeticiones()
+                on_press: app.root.current = "peticiones"
+            Label:
+            Label:
             CustButton:
                 text: "Ayuda"
         # Col: 2 Row: 2
